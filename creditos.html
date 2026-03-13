@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Créditos | Grecia Valentina</title>
+  <meta name="description" content="Créditos del sitio web de Grecia Valentina. Desarrollado por CerjeskyStudios.">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">
+      <img class="navbar-logo-img" src="assets/img/logo.jpg" alt="GV" onerror="this.style.display='none'">
+      <span class="navbar-logo-text">GRECIA <span>VALENTINA</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a><a href="tienda.html">Tienda</a>
+      <a href="nosotros.html">Sobre mí</a><a href="galeria.html">Galería</a><a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="navbar-actions">
+      <a href="carrito.html" class="cart-btn" aria-label="Carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>
+<nav class="nav-mobile" id="navMobile">
+  <a href="index.html">Inicio</a><a href="tienda.html">Tienda</a><a href="nosotros.html">Sobre mí</a>
+  <a href="galeria.html">Galería</a><a href="contacto.html">Contacto</a>
+  <a href="carrito.html" style="color:var(--color-gold)">🛒 Carrito</a>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> › <span>Créditos</span></div>
+    <h1 class="page-hero-title fade-in">CRÉ<span class="text-gradient">DITOS</span></h1>
+    <p class="page-hero-subtitle fade-in">Las personas y herramientas detrás de este sitio</p>
+  </div>
+</div>
+
+<main class="section" style="padding-top:1rem;">
+  <div class="container" style="max-width:900px;">
+
+    <!-- CERJESKY STUDIOS - Protagonista -->
+    <div class="dev-studio-section fade-in" style="margin-bottom:3rem;">
+      <div style="font-size:3rem;margin-bottom:.5rem;">⚡</div>
+      <div class="dev-studio-logo">CERJESKY <span>STUDIOS</span></div>
+      <div class="dev-studio-tagline">Code · Create · Innovate</div>
+      <p style="color:var(--color-white-muted);max-width:520px;margin:0 auto 1.5rem;line-height:1.8;font-size:.95rem;">
+        El equipo de desarrollo detrás de este sitio web. Un estudio venezolano con 43 profesionales, 
+        8 países y 50+ proyectos entregados.
+      </p>
+      <a href="estudio.html" class="btn btn-outline" style="margin-bottom:1.5rem;">Conocer el estudio →</a>
+      <div class="dev-studio-team">
+        <div class="dev-team-member">
+          <div class="dev-team-name">Jesús Montero</div>
+          <div class="dev-team-role">CEO & Fundador · Alias "Cerjesky"</div>
+        </div>
+        <div class="dev-team-member">
+          <div class="dev-team-name">Alicson Rubio</div>
+          <div class="dev-team-role">Líder & Supervisor</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECNOLOGÍAS -->
+    <div class="fade-in" style="margin-bottom:3rem;">
+      <span class="section-label">Stack tecnológico</span>
+      <h2 class="section-title" style="margin-bottom:1.5rem;font-size:2rem;">HERRAMIENTAS</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;">
+        ${['HTML5', 'CSS3 Vanilla', 'JavaScript ES6+', 'Google Fonts', 'Google Ads', 'localStorage API', 'WhatsApp API', 'Mailto Protocol'].map(t => `
+          <div style="background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1rem;text-align:center;">
+            <span style="font-size:.85rem;font-weight:600;color:var(--color-white-muted);">${t}</span>
+          </div>`).join('')}
+      </div>
+    </div>
+
+    <!-- FOTOGRAFÍA / CONTENIDO -->
+    <div class="fade-in" style="margin-bottom:3rem;">
+      <span class="section-label">Contenido</span>
+      <h2 class="section-title" style="margin-bottom:1.5rem;font-size:2rem;">FOTOGRAFÍA</h2>
+      <div style="background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:2rem;">
+        <p style="color:var(--color-white-muted);line-height:1.8;">
+          📸 Fotografía y contenido visual: <strong style="color:var(--color-white);">Grecia Valentina</strong> y su equipo creativo.<br>
+          🖼️ Imágenes de productos: proveedores oficiales.<br>
+          🎨 Diseño visual: <strong style="color:var(--color-white);">CerjeskyStudios</strong>
+        </p>
+      </div>
+    </div>
+
+    <!-- VERSIÓN -->
+    <div class="fade-in" style="text-align:center;padding:2rem;background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);">
+      <div style="font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;color:var(--color-gold);margin-bottom:.75rem;">Versión del sitio</div>
+      <div style="font-family:var(--font-heading);font-size:2rem;letter-spacing:.05em;">v1.0.0</div>
+      <div style="color:var(--color-white-muted);font-size:.85rem;margin-top:.5rem;" id="buildDate"></div>
+    </div>
+
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="footerYear"></span> Grecia Valentina.</p>
+      <p class="footer-dev">Desarrollado por <a href="estudio.html">CerjeskyStudios</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  document.getElementById('buildDate').textContent = 'Lanzamiento: ' + new Date().toLocaleDateString('es-VE', {year:'numeric',month:'long'});
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pago | Grecia Valentina</title>
+  <meta name="description" content="Datos de pago móvil y confirmación de tu pedido.">
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">
+      <img class="navbar-logo-img" src="assets/img/logo.jpg" alt="GV" onerror="this.style.display='none'">
+      <span class="navbar-logo-text">GRECIA <span>VALENTINA</span></span>
+    </a>
+    <div class="navbar-actions">
+      <a href="carrito.html" class="cart-btn" aria-label="Carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> › <a href="carrito.html">Carrito</a> › <span>Pago</span></div>
+    <h1 class="page-hero-title fade-in">DATOS DE <span class="text-gradient">PAGO</span></h1>
+  </div>
+</div>
+
+<!-- STEPS -->
+<div class="container" style="margin-bottom:2rem;">
+  <div class="steps-bar">
+    <div class="step-item done">
+      <div class="step-num">✓</div>
+      <span class="step-label">Carrito</span>
+    </div>
+    <div class="step-line" style="background:var(--color-gold);"></div>
+    <div class="step-item active">
+      <div class="step-num">2</div>
+      <span class="step-label">Pago</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <span class="step-label">Confirmación</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENIDO PAGO -->
+<main class="section" style="padding-top:0;" id="mainContent">
+  <div class="container">
+
+    <!-- Panel vacío si no hay pedido -->
+    <div id="emptyPago" style="display:none;">
+      <div class="empty-state">
+        <div class="empty-state-icon">⚠️</div>
+        <h3>No hay pedido activo</h3>
+        <p>Vuelve al carrito para continuar</p>
+        <a href="carrito.html" class="btn btn-primary">Ir al carrito</a>
+      </div>
+    </div>
+
+    <!-- Contenido real -->
+    <div id="pagoContent" style="display:none;">
+      <div style="display:grid;grid-template-columns:1fr 380px;gap:3rem;align-items:start;" class="responsive-pago">
+
+        <!-- Izquierda: Pago Móvil -->
+        <div>
+          <h2 style="font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.05em;margin-bottom:.5rem;">REALIZA TU TRANSFERENCIA</h2>
+          <p style="color:var(--color-white-muted);margin-bottom:2rem;line-height:1.7;">
+            Transfiere el monto exacto de tu pedido a los datos indicados a continuación. 
+            Una vez realizada la transferencia, ingresa la referencia y presiona <strong style="color:var(--color-gold)">Reportar Pago</strong>.
+          </p>
+
+          <!-- Card Pago Móvil -->
+          <div class="pago-movil-card fade-in">
+            <div class="pago-movil-title">💳 PAGO MÓVIL</div>
+            <div class="pago-movil-row">
+              <span class="pago-movil-label">Banco</span>
+              <div style="display:flex;align-items:center;gap:.75rem;">
+                <span class="pago-movil-value" id="pmBanco">—</span>
+                <button class="copy-btn" id="copyBanco" data-copy="">Copiar</button>
+              </div>
+            </div>
+            <div class="pago-movil-row">
+              <span class="pago-movil-label">Cédula / RIF</span>
+              <div style="display:flex;align-items:center;gap:.75rem;">
+                <span class="pago-movil-value" id="pmCedula">—</span>
+                <button class="copy-btn" id="copyCedula" data-copy="">Copiar</button>
+              </div>
+            </div>
+            <div class="pago-movil-row">
+              <span class="pago-movil-label">Teléfono</span>
+              <div style="display:flex;align-items:center;gap:.75rem;">
+                <span class="pago-movil-value" id="pmTelefono">—</span>
+                <button class="copy-btn" id="copyTelefono" data-copy="">Copiar</button>
+              </div>
+            </div>
+            <div class="pago-movil-row">
+              <span class="pago-movil-label">Titular</span>
+              <span class="pago-movil-value" id="pmTitular">—</span>
+            </div>
+            <div class="pago-movil-row" style="margin-top:.5rem;">
+              <span class="pago-movil-label" style="font-weight:700;">Monto a pagar</span>
+              <span class="pago-movil-value" id="pmMonto" style="color:var(--color-gold);font-size:1.5rem;">$0.00</span>
+            </div>
+          </div>
+
+          <!-- Referencia bancaria -->
+          <div style="background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.5rem;margin-top:1.5rem;">
+            <h3 style="font-family:var(--font-heading);letter-spacing:.05em;font-size:1.2rem;margin-bottom:1rem;">REFERENCIA DE PAGO</h3>
+            <div class="form-group">
+              <label class="form-label" for="referencia">Número de referencia bancaria *</label>
+              <input class="form-input" type="text" id="referencia"
+                placeholder="Ingresa el número de referencia de tu transferencia" required
+                style="font-size:1.1rem;letter-spacing:.05em;">
+            </div>
+            <p style="font-size:0.8rem;color:var(--color-white-dim);margin-top:.75rem;">
+              📌 Encuentra la referencia en el comprobante de tu banco
+            </p>
+          </div>
+
+          <!-- Botón Reportar Pago -->
+          <button id="reportarPagoBtn" class="btn btn-whatsapp"
+            style="width:100%;justify-content:center;font-size:1.1rem;padding:1rem;margin-top:1.5rem;border-radius:var(--radius-md);">
+            <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 0C5.373 0 0 5.373 0 12c0 2.119.554 4.107 1.523 5.834L0 24l6.335-1.508A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6a9.567 9.567 0 0 1-4.95-1.376l-.355-.21-3.76.895.952-3.666-.231-.376A9.552 9.552 0 0 1 2.4 12C2.4 6.696 6.696 2.4 12 2.4S21.6 6.696 21.6 12 17.304 21.6 12 21.6z"/>
+            </svg>
+            Reportar Pago por WhatsApp
+          </button>
+          <p style="text-align:center;font-size:.8rem;color:var(--color-white-dim);margin-top:.75rem;">
+            Se abrirá WhatsApp y tu correo con el detalle del pedido
+          </p>
+        </div>
+
+        <!-- Derecha: Resumen -->
+        <div>
+          <div class="order-summary">
+            <div class="order-summary-title">TU PEDIDO</div>
+            <div id="orderItemsList"></div>
+            <div class="order-total">
+              <span class="order-total-label">Total</span>
+              <span class="order-total-price" id="orderTotal">$0.00</span>
+            </div>
+          </div>
+
+          <!-- Datos del comprador (resumen) -->
+          <div style="background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.5rem;margin-top:1.5rem;">
+            <div style="font-size:.75rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--color-gold);margin-bottom:1rem;">DATOS DEL COMPRADOR</div>
+            <div id="buyerSummary" style="font-size:.9rem;color:var(--color-white-muted);line-height:1.8;"></div>
+          </div>
+
+          <a href="carrito.html" class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:1rem;">
+            ← Volver al carrito
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</main>
+
+<!-- CONFIRMACIÓN (oculta, se muestra al reportar) -->
+<div id="confirmacion" style="display:none;padding:var(--space-16) 0;">
+  <div class="container">
+    <div class="success-box">
+      <div class="success-icon">✓</div>
+      <h2 class="success-title">¡PAGO <span class="text-gradient">REPORTADO!</span></h2>
+      <p style="color:var(--color-white-muted);max-width:480px;margin:0 auto 2rem;line-height:1.7;">
+        Tu pedido y referencia de pago fueron enviados por WhatsApp y correo electrónico al equipo de Grecia Valentina. 
+        Te contactaremos pronto para confirmar tu envío. 🏍️
+      </p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="index.html" class="btn btn-primary">Volver al inicio</a>
+        <a href="tienda.html" class="btn btn-outline">Seguir comprando</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER mínimo -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="footerYear"></span> Grecia Valentina.</p>
+      <p class="footer-dev">Desarrollado por <a href="estudio.html">CerjeskyStudios</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/checkout.js"></script>
+<script src="js/main.js"></script>
+<script>
+const style = document.createElement('style');
+style.textContent = `@media(max-width:768px){.responsive-pago{grid-template-columns:1fr!important;}}`;
+document.head.appendChild(style);
+
+document.addEventListener('DOMContentLoaded', () => {
+  const items = Cart.getItems();
+  const buyer = JSON.parse(sessionStorage.getItem('gv_buyer') || 'null');
+
+  if (!items.length || !buyer) {
+    document.getElementById('emptyPago').style.display = 'block';
+    return;
+  }
+
+  document.getElementById('pagoContent').style.display = 'block';
+  const subtotal = Cart.getSubtotal();
+
+  // Pago Móvil datos desde CONFIG
+  const pm = CONFIG.PAGO_MOVIL;
+  document.getElementById('pmBanco').textContent   = pm.banco;
+  document.getElementById('pmCedula').textContent  = pm.cedula;
+  document.getElementById('pmTelefono').textContent= pm.telefono;
+  document.getElementById('pmTitular').textContent = pm.titular;
+  document.getElementById('pmMonto').textContent   = `$${subtotal.toFixed(2)}`;
+
+  // Botones copiar
+  document.getElementById('copyBanco').dataset.copy    = pm.banco;
+  document.getElementById('copyCedula').dataset.copy   = pm.cedula;
+  document.getElementById('copyTelefono').dataset.copy = pm.telefono;
+
+  // Resumen pedido
+  document.getElementById('orderItemsList').innerHTML = items.map(i => `
+    <div class="order-row">
+      <span>${i.name} x${i.qty}</span>
+      <span>$${(i.price*i.qty).toFixed(2)}</span>
+    </div>`).join('');
+  document.getElementById('orderTotal').textContent = `$${subtotal.toFixed(2)}`;
+
+  // Datos comprador
+  document.getElementById('buyerSummary').innerHTML = `
+    <div><strong>Nombre:</strong> ${buyer.nombre} ${buyer.apellido}</div>
+    <div><strong>Teléfono:</strong> ${buyer.telefono}</div>
+    <div><strong>Ciudad:</strong> ${buyer.ciudad}</div>`;
+
+  // Botón reportar pago
+  document.getElementById('reportarPagoBtn').addEventListener('click', () => {
+    const ref = document.getElementById('referencia').value.trim();
+    if (!ref) {
+      document.getElementById('referencia').focus();
+      document.getElementById('referencia').style.borderColor = '#e74c3c';
+      return;
+    }
+    sendOrder(items, subtotal, buyer, ref);
+    document.getElementById('pagoContent').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('confirmacion').style.display = 'block';
+    sessionStorage.removeItem('gv_buyer');
+  });
+});
+</script>
+</body>
+</html>

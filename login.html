@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<!--
+  ╔═══════════════════════════════════════════════════════════╗
+  ║  GRECIA VALENTINA — LOGIN (Preparado para implementación futura)
+  ║
+  ║  Esta página NO tiene enlaces públicos en el sitio.
+  ║  Acceso solo por URL directa: /login.html
+  ║
+  ║  PUNTOS DE INTEGRACIÓN FUTURA:
+  ║  1. Reemplazar onSubmit por fetch() a /api/auth/login
+  ║  2. Guardar JWT en localStorage/cookie httpOnly
+  ║  3. Redirigir a /dashboard.html o /mi-cuenta.html
+  ║  4. Descomentar enlace "Mi cuenta" en el navbar (main.js)
+  ║  5. Implementar OAuth (Google, Facebook) con botones listos
+  ╚═══════════════════════════════════════════════════════════╝
+-->
+<html lang="es">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Iniciar sesión | Grecia Valentina</title>
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="css/main.css">
+  <style>
+    body { display: flex; align-items: center; justify-content: center; min-height: 100vh; background: var(--color-bg); padding: 2rem; }
+    .login-box {
+      width: 100%; max-width: 440px;
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-xl);
+      padding: 3rem 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .login-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gradient-gold);
+    }
+    .login-logo {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .login-title {
+      font-family: var(--font-heading);
+      font-size: 2rem;
+      letter-spacing: .1em;
+      text-align: center;
+      margin-bottom: .5rem;
+    }
+    .login-sub {
+      text-align: center;
+      color: var(--color-white-muted);
+      font-size: .9rem;
+      margin-bottom: 2rem;
+    }
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0;
+      color: var(--color-white-dim);
+      font-size: .8rem;
+    }
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--color-border);
+    }
+    /* Botón OAuth placeholder */
+    .oauth-btn {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .75rem;
+      padding: .875rem;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      font-size: .95rem;
+      font-weight: 500;
+      color: var(--color-white-muted);
+      transition: all var(--transition-fast);
+      margin-bottom: .75rem;
+      background: transparent;
+      cursor: pointer;
+    }
+    .oauth-btn:hover {
+      border-color: var(--color-gold);
+      color: var(--color-white);
+    }
+    .future-badge {
+      display: inline-block;
+      background: rgba(212,160,23,0.12);
+      border: 1px solid var(--color-gold-dark);
+      color: var(--color-gold);
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .2rem .6rem;
+      border-radius: var(--radius-full);
+      margin-left: .5rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-box">
+  <div class="login-logo">
+    <a href="index.html" style="font-family:var(--font-heading);font-size:1.25rem;letter-spacing:.1em;color:var(--color-white);">
+      GRECIA <span style="color:var(--color-gold)">VALENTINA</span>
+    </a>
+  </div>
+
+  <h1 class="login-title">INICIAR <span class="text-gradient">SESIÓN</span></h1>
+  <p class="login-sub">Accede a tu cuenta<span class="future-badge">próximamente</span></p>
+
+  <!-- FORMULARIO LOGIN -->
+  <form id="loginForm" style="display:flex;flex-direction:column;gap:1.25rem;" novalidate>
+    <div class="form-group">
+      <label class="form-label" for="loginEmail">Correo electrónico</label>
+      <input class="form-input" type="email" id="loginEmail" placeholder="tu@correo.com" autocomplete="email">
+    </div>
+    <div class="form-group">
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <label class="form-label" for="loginPassword">Contraseña</label>
+        <a href="#" style="font-size:.8rem;color:var(--color-gold);" tabindex="-1">¿Olvidaste tu contraseña?</a>
+      </div>
+      <div style="position:relative;">
+        <input class="form-input" type="password" id="loginPassword" placeholder="••••••••" autocomplete="current-password">
+        <button type="button" id="togglePass"
+          style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);color:var(--color-white-dim);font-size:1rem;">👁</button>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;padding:1rem;font-size:1rem;">
+      Iniciar sesión
+    </button>
+  </form>
+
+  <div class="divider">o continúa con</div>
+
+  <!-- OAuth (preparado) -->
+  <!-- TODO: Implementar OAuth en fase 2 -->
+  <button class="oauth-btn" type="button" title="OAuth Google — pendiente de implementación" disabled>
+    <svg width="20" height="20" viewBox="0 0 24 24"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+    Continuar con Google <span class="future-badge">v2.0</span>
+  </button>
+  <button class="oauth-btn" type="button" title="OAuth Facebook — pendiente de implementación" disabled>
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="#1877F2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    Continuar con Facebook <span class="future-badge">v2.0</span>
+  </button>
+
+  <p style="text-align:center;font-size:.85rem;color:var(--color-white-dim);margin-top:1.5rem;">
+    ¿No tienes cuenta? <a href="#" style="color:var(--color-gold);">Regístrate</a>
+  </p>
+  <div style="text-align:center;margin-top:1rem;">
+    <a href="index.html" style="font-size:.8rem;color:var(--color-white-dim);">← Volver al sitio</a>
+  </div>
+</div>
+
+<script src="js/config.js"></script>
+<script>
+// ── TOGGLE PASSWORD ─────────────────────────────────────────
+document.getElementById('togglePass').addEventListener('click', () => {
+  const inp = document.getElementById('loginPassword');
+  inp.type = inp.type === 'password' ? 'text' : 'password';
+});
+
+// ── LOGIN SUBMIT (PLACEHOLDER — integrar con /api/auth/login en v2) ──
+document.getElementById('loginForm').addEventListener('submit', async (e) => {
+  e.preventDefault();
+  const email    = document.getElementById('loginEmail').value.trim();
+  const password = document.getElementById('loginPassword').value;
+
+  if (!email || !password) {
+    alert('Por favor completa todos los campos.');
+    return;
+  }
+
+  // TODO: Reemplazar con fetch a /api/auth/login
+  // const res = await fetch('/api/auth/login', {
+  //   method: 'POST',
+  //   headers: { 'Content-Type': 'application/json' },
+  //   body: JSON.stringify({ email, password })
+  // });
+  // const data = await res.json();
+  // if (data.token) {
+  //   localStorage.setItem('gv_token', data.token);
+  //   window.location.href = '/mi-cuenta.html';
+  // }
+
+  alert('⚠️ El sistema de login estará disponible próximamente.\n\nEsta página está preparada para integración futura.');
+});
+</script>
+</body>
+</html>

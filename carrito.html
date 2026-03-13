@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Carrito | Grecia Valentina</title>
+  <meta name="description" content="Revisa tu carrito de compras y procede al pago.">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">
+      <img class="navbar-logo-img" src="assets/img/logo.jpg" alt="GV" onerror="this.style.display='none'">
+      <span class="navbar-logo-text">GRECIA <span>VALENTINA</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a><a href="tienda.html">Tienda</a>
+      <a href="nosotros.html">Sobre mí</a><a href="galeria.html">Galería</a><a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="navbar-actions">
+      <a href="carrito.html" class="cart-btn active" aria-label="Carrito">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="nav-mobile" id="navMobile">
+  <a href="index.html">Inicio</a><a href="tienda.html">Tienda</a>
+  <a href="nosotros.html">Sobre mí</a><a href="galeria.html">Galería</a><a href="contacto.html">Contacto</a>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> › <a href="tienda.html">Tienda</a> › <span>Carrito</span></div>
+    <h1 class="page-hero-title fade-in">MI <span class="text-gradient">CARRITO</span></h1>
+  </div>
+</div>
+
+<!-- STEPS -->
+<div class="container" style="margin-bottom:2rem;">
+  <div class="steps-bar">
+    <div class="step-item active">
+      <div class="step-num">1</div>
+      <span class="step-label">Carrito</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item">
+      <div class="step-num">2</div>
+      <span class="step-label">Pago</span>
+    </div>
+    <div class="step-line"></div>
+    <div class="step-item">
+      <div class="step-num">3</div>
+      <span class="step-label">Confirmación</span>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENIDO CARRITO -->
+<main class="section" style="padding-top:0;">
+  <div class="container">
+    <div id="cartContent">
+      <!-- Se renderiza con JS -->
+    </div>
+  </div>
+</main>
+
+<!-- FOOTER mínimo -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="footerYear"></span> Grecia Valentina. Todos los derechos reservados.</p>
+      <p class="footer-dev">Desarrollado por <a href="estudio.html">CerjeskyStudios</a></p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>
+<script src="js/main.js"></script>
+<script>
+function renderCart() {
+  const items = Cart.getItems();
+  const container = document.getElementById('cartContent');
+
+  if (items.length === 0) {
+    container.innerHTML = `
+      <div class="empty-state">
+        <div class="empty-state-icon">🛒</div>
+        <h3>Tu carrito está vacío</h3>
+        <p>Agrega productos desde la tienda para continuar</p>
+        <a href="tienda.html" class="btn btn-primary">Ir a la tienda</a>
+      </div>`;
+    return;
+  }
+
+  const subtotal = Cart.getSubtotal();
+
+  container.innerHTML = `
+    <div style="display:grid;grid-template-columns:1fr 380px;gap:3rem;align-items:start;" class="responsive-cart">
+      <!-- Items -->
+      <div>
+        <h2 style="font-family:var(--font-heading);font-size:1.5rem;letter-spacing:.05em;margin-bottom:1.5rem;">
+          PRODUCTOS (${items.length})
+        </h2>
+        <div id="cartItemsList">
+          ${items.map(item => `
+            <div class="cart-item" id="item-${item.id}">
+              <div style="position:relative;flex-shrink:0;">
+                <img class="cart-item-img" src="${item.img}" alt="${item.name}"
+                  onerror="this.style.background='var(--color-surface)';this.src='';this.alt='🏍️';">
+              </div>
+              <div class="cart-item-info">
+                <div class="cart-item-name">${item.name}</div>
+                <div class="cart-item-price">$${item.price.toFixed(2)} c/u</div>
+                <div class="qty-controls" style="margin-top:.5rem;">
+                  <button class="qty-btn" onclick="changeQty('${item.id}', ${item.qty - 1})">−</button>
+                  <span class="qty-value">${item.qty}</span>
+                  <button class="qty-btn" onclick="changeQty('${item.id}', ${item.qty + 1})">+</button>
+                </div>
+              </div>
+              <div style="text-align:right;">
+                <div style="font-weight:700;margin-bottom:.5rem;">$${(item.price * item.qty).toFixed(2)}</div>
+                <button class="remove-btn" onclick="removeItem('${item.id}')" aria-label="Eliminar">🗑</button>
+              </div>
+            </div>
+          `).join('')}
+        </div>
+        <div style="margin-top:1.5rem;">
+          <a href="tienda.html" class="btn btn-ghost">← Seguir comprando</a>
+        </div>
+      </div>
+
+      <!-- Resumen + Formulario -->
+      <div>
+        <div class="order-summary" style="margin-bottom:1.5rem;">
+          <div class="order-summary-title">RESUMEN</div>
+          ${items.map(i => `
+            <div class="order-row">
+              <span>${i.name} x${i.qty}</span>
+              <span>$${(i.price * i.qty).toFixed(2)}</span>
+            </div>`).join('')}
+          <div class="order-total">
+            <span class="order-total-label">Total</span>
+            <span class="order-total-price">$${subtotal.toFixed(2)}</span>
+          </div>
+        </div>
+
+        <!-- Datos del comprador -->
+        <div style="background:var(--color-bg-card);border:1px solid var(--color-border);border-radius:var(--radius-lg);padding:1.5rem;margin-bottom:1.5rem;">
+          <h3 style="font-family:var(--font-heading);letter-spacing:.05em;font-size:1.3rem;margin-bottom:1.5rem;">TUS DATOS</h3>
+          <form id="buyerForm" style="display:flex;flex-direction:column;gap:1rem;">
+            <div class="form-group">
+              <label class="form-label" for="buyerNombre">Nombre *</label>
+              <input class="form-input" type="text" id="buyerNombre" name="nombre" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="buyerApellido">Apellido *</label>
+              <input class="form-input" type="text" id="buyerApellido" name="apellido" placeholder="Tu apellido" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="buyerTelefono">Teléfono *</label>
+              <input class="form-input" type="tel" id="buyerTelefono" name="telefono" placeholder="04XX-XXXXXXX" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="buyerCiudad">Ciudad / Estado *</label>
+              <input class="form-input" type="text" id="buyerCiudad" name="ciudad" placeholder="Ej: Caracas, Miranda" required>
+            </div>
+          </form>
+        </div>
+
+        <button class="btn btn-primary" style="width:100%;justify-content:center;font-size:1.1rem;padding:1rem;margin-bottom:1rem;" 
+          id="proceedToPayBtn">
+          Proceder al Pago →
+        </button>
+
+        <!-- Trust Badges -->
+        <div style="display:flex;flex-direction:column;gap:0.8rem;background:rgba(255,255,255,0.02);border:1px solid var(--color-border);border-radius:var(--radius-md);padding:1rem;">
+          <div style="display:flex;align-items:center;gap:0.75rem;font-size:var(--fs-xs);color:var(--color-white-muted);font-weight:600;">
+            <span style="font-size:1.2rem;">🛡️</span> Garantía de calidad
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;font-size:var(--fs-xs);color:var(--color-white-muted);font-weight:600;">
+            <span style="font-size:1.2rem;">🚚</span> Envíos a todo el país
+          </div>
+          <div style="display:flex;align-items:center;gap:0.75rem;font-size:var(--fs-xs);color:var(--color-white-muted);font-weight:600;">
+            <span style="font-size:1.2rem;">🔒</span> Tus datos están seguros
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ADS -->
+    <div class="ads-banner" style="margin-top:3rem;">
+      <ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    </div>`;
+
+  // Estilos responsive
+  const style = document.createElement('style');
+  style.textContent = `@media(max-width:768px){.responsive-cart{grid-template-columns:1fr!important;}}`;
+  document.head.appendChild(style);
+
+  // Botón pagar
+  document.getElementById('proceedToPayBtn').addEventListener('click', () => {
+    const form = document.getElementById('buyerForm');
+    if (!form.checkValidity()) { form.reportValidity(); return; }
+    const data = {
+      nombre: form.nombre.value.trim(),
+      apellido: form.apellido.value.trim(),
+      telefono: form.telefono.value.trim(),
+      ciudad: form.ciudad.value.trim(),
+    };
+    sessionStorage.setItem('gv_buyer', JSON.stringify(data));
+    window.location.href = 'pago.html';
+  });
+}
+
+function changeQty(id, qty) {
+  Cart.updateQty(id, qty);
+  renderCart();
+}
+function removeItem(id) {
+  Cart.remove(id);
+  renderCart();
+}
+
+document.addEventListener('DOMContentLoaded', renderCart);
+window.addEventListener('cartUpdated', renderCart);
+</script>
+</body>
+</html>

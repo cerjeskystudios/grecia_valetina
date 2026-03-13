@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tienda | Grecia Valentina</title>
+  <meta name="description" content="Catálogo completo de accesorios para moto: cascos, guantes, forros, chaquetas y más.">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+
+<!-- POP-UP -->
+<div class="popup-overlay" id="popupOverlay" role="dialog" aria-modal="true" aria-label="Publicidad">
+  <div class="popup-box">
+    <button class="popup-close" id="popupClose" aria-label="Cerrar">✕</button>
+    <a id="popupLink" href="#"><img class="popup-img" id="popupImg" src="assets/img/ads/popup.jpg" alt="Publicidad"></a>
+  </div>
+</div>
+
+<!-- NAVBAR -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo">
+      <img class="navbar-logo-img" src="assets/img/logo.jpg" alt="GV" onerror="this.style.display='none'">
+      <span class="navbar-logo-text">GRECIA <span>VALENTINA</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="tienda.html" class="active">Tienda</a>
+      <a href="nosotros.html">Sobre mí</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+    <div class="navbar-actions">
+      <a href="carrito.html" class="cart-btn" aria-label="Carrito" id="cartBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+<nav class="nav-mobile" id="navMobile">
+  <a href="index.html">Inicio</a><a href="tienda.html">Tienda</a>
+  <a href="nosotros.html">Sobre mí</a><a href="galeria.html">Galería</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="carrito.html" style="color:var(--color-gold)">🛒 Carrito</a>
+</nav>
+
+<!-- HERO PÁGINA -->
+<div class="page-hero">
+  <div class="container">
+    <div class="breadcrumb"><a href="index.html">Inicio</a> › <span>Tienda</span></div>
+    <h1 class="page-hero-title fade-in">NUESTRA <span class="text-gradient">TIENDA</span></h1>
+    <p class="page-hero-subtitle fade-in">Accesorios seleccionados por Grecia Valentina para tu seguridad y estilo</p>
+  </div>
+</div>
+
+<!-- TIENDA -->
+<main class="section" style="padding-top:2rem;">
+  <div class="container">
+
+    <!-- FILTROS -->
+    <div class="filters-bar" id="filtersBar">
+      <!-- Se genera con JS -->
+    </div>
+
+    <!-- ADS banner superior -->
+    <div class="ads-banner" id="adsBanner"><ins class="adsbygoogle" style="display:block" data-ad-format="auto" data-full-width-responsive="true"></ins></div>
+
+    <!-- GRID PRODUCTOS -->
+    <div class="products-grid" id="storeProducts"></div>
+
+    <!-- Cargar más -->
+    <div style="text-align:center;margin-top:3rem;" id="loadMoreWrapper">
+      <button class="btn btn-outline" id="loadMoreBtn">Cargar más →</button>
+    </div>
+
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="footer-logo"><span>GRECIA <span style="color:var(--color-gold)">VALENTINA</span></span></div><p>Accesorios de calidad para quienes viven la moto.</p></div>
+      <div><div class="footer-col-title">Tienda</div><div class="footer-links"><a href="tienda.html">Todos</a><a href="tienda.html?cat=cascos">Cascos</a><a href="tienda.html?cat=guantes">Guantes</a><a href="tienda.html?cat=forros">Forros</a></div></div>
+      <div><div class="footer-col-title">Páginas</div><div class="footer-links"><a href="nosotros.html">Sobre mí</a><a href="galeria.html">Galería</a><a href="contacto.html">Contacto</a><a href="creditos.html">Créditos</a></div></div>
+      <div><div class="footer-col-title">Legal</div><div class="footer-links"><a href="privacidad.html">Privacidad</a><a href="terminos.html">Términos</a></div></div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="footerYear"></span> Grecia Valentina. Todos los derechos reservados.</p>
+      <p class="footer-dev">Desarrollado por <a href="estudio.html">CerjeskyStudios</a></p>
+    </div>
+  </div>
+</footer>
+
+<button id="backToTop" aria-label="Volver arriba" style="position:fixed;bottom:2rem;right:2rem;z-index:500;width:44px;height:44px;border-radius:50%;background:var(--gradient-gold);color:#000;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-btn);border:none;cursor:pointer;font-size:1.2rem;">↑</button>
+
+<script src="js/config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>
+<script src="js/popup.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Filtros
+  const filtersBar = document.getElementById('filtersBar');
+  filtersBar.innerHTML = CATEGORIES.map(c => `
+    <button class="filter-btn${c.id==='todos'?' active':''}" data-cat="${c.id}">${c.label}</button>
+  `).join('');
+
+  let currentCat = 'todos';
+
+  // Leer categoría de URL
+  const urlParams = new URLSearchParams(window.location.search);
+  const catParam = urlParams.get('cat');
+  if (catParam && CATEGORIES.find(c => c.id === catParam)) {
+    currentCat = catParam;
+    filtersBar.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.toggle('active', b.dataset.cat === catParam);
+    });
+  }
+
+  renderProducts('#storeProducts', currentCat);
+
+  filtersBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filtersBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentCat = btn.dataset.cat;
+    renderProducts('#storeProducts', currentCat);
+    document.getElementById('loadMoreWrapper').style.display =
+      PRODUCTS.filter(p => currentCat==='todos' || p.category===currentCat).length > 9 ? '' : 'none';
+  });
+
+  // Cargar más (simple — en un sitio real se implementaría paginación real)
+  document.getElementById('loadMoreBtn')?.addEventListener('click', () => {
+    document.getElementById('loadMoreWrapper').style.display = 'none';
+  });
+});
+</script>
+</body>
+</html>
