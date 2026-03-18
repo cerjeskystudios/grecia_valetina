@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Grecia Valentina | Accesorios para Moto</title>
+  <meta name="description" content="Accesorios premium para motos: cascos, guantes, forros, chaquetas y más. La tienda oficial de Grecia Valentina, tu influencer favorita del mundo moto.">
+  <meta name="keywords" content="accesorios moto, cascos, guantes, forros, chaquetas moto, Grecia Valentina">
+  <meta name="author" content="CerjeskyStudios">
+  <meta name="robots" content="index, follow">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Grecia Valentina | Accesorios para Moto">
+  <meta property="og:description" content="Tienda oficial de Grecia Valentina. Cascos, guantes, forros y más para tu moto.">
+  <meta property="og:image" content="assets/img/hero/hero-main.jpg">
+  <meta name="theme-color" content="#0a0a0a">
+  <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="stylesheet" href="css/main.css">
+  <!-- Schema.org -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"Store",
+    "name":"Grecia Valentina",
+    "description":"Tienda de accesorios para moto",
+    "url":"https://graciavalentina.com",
+    "image":"assets/img/hero/hero-main.jpg",
+    "priceRange":"$$",
+    "currenciesAccepted":"USD",
+    "paymentAccepted":"Pago Móvil",
+    "sameAs":["https://www.instagram.com/tu_usuario","https://www.tiktok.com/@tu_usuario"]
+  }
+  </script>
+</head>
+<body>
+
+<!-- ══════════ POP-UP PUBLICITARIO ══════════ -->
+<div class="popup-overlay" id="popupOverlay" role="dialog" aria-modal="true" aria-label="Publicidad">
+  <div class="popup-box">
+    <button class="popup-close" id="popupClose" aria-label="Cerrar publicidad">✕</button>
+    <a id="popupLink" href="#" target="_blank" rel="noopener">
+      <img class="popup-img" id="popupImg" src="assets/img/ads/popup.jpg" alt="Publicidad">
+    </a>
+  </div>
+</div>
+
+<!-- ══════════ NAVBAR ══════════ -->
+<header class="navbar" id="navbar">
+  <div class="container">
+    <a href="index.html" class="navbar-logo" aria-label="Inicio">
+      <img class="navbar-logo-img" src="assets/img/logo.jpg" alt="Grecia Valentina" onerror="this.style.display='none'">
+      <span class="navbar-logo-text">GRECIA <span>VALENTINA</span></span>
+    </a>
+
+    <nav class="nav-links" aria-label="Navegación principal">
+      <a href="index.html">Inicio</a>
+      <a href="tienda.html">Tienda</a>
+      <a href="nosotros.html">Sobre mí</a>
+      <a href="galeria.html">Galería</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="navbar-actions">
+      <a href="carrito.html" class="cart-btn" aria-label="Carrito de compras" id="cartBtn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+        </svg>
+        <span class="cart-badge" id="cartBadge">0</span>
+      </a>
+      <button class="hamburger" id="hamburger" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Nav -->
+<nav class="nav-mobile" id="navMobile" aria-label="Menú móvil">
+  <a href="index.html">Inicio</a>
+  <a href="tienda.html">Tienda</a>
+  <a href="nosotros.html">Sobre mí</a>
+  <a href="galeria.html">Galería</a>
+  <a href="contacto.html">Contacto</a>
+  <a href="carrito.html" style="color:var(--color-gold)">🛒 Carrito</a>
+</nav>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg">
+    <img class="hero-bg-img" src="assets/img/hero/hero-main.jpg" alt="Grecia Valentina en moto"
+      onerror="this.style.opacity='0'">
+    <div class="hero-bg-overlay"></div>
+  </div>
+  <div class="container">
+    <div class="hero-content">
+      <span class="hero-label">Tu influencer de motos favorita</span>
+      <h1 class="hero-title">
+        ESTILO<br>
+        <span class="highlight">SOBRE</span><br>
+        RUEDAS
+      </h1>
+      <p class="hero-subtitle">
+        Accesorios de calidad para quienes viven la moto como filosofía de vida. 
+        Cascos, guantes, forros y más — seleccionados por Grecia Valentina.
+      </p>
+      <div class="hero-actions">
+        <a href="tienda.html" class="btn btn-primary">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+          </svg>
+          Ir a la Tienda
+        </a>
+        <a href="nosotros.html" class="btn btn-outline">Sobre mí</a>
+      </div>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="hero-scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ══════════ SOBRE GRECIA (mini bio) ══════════ -->
+<section class="section" id="sobre-grecia">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;" class="responsive-2col">
+      <div class="fade-in-left">
+        <div style="border-radius:20px;overflow:hidden;aspect-ratio:4/5;background:var(--color-surface);">
+          <img src="assets/img/hero/grecia-bio.jpg" alt="Grecia Valentina"
+            style="width:100%;height:100%;object-fit:cover;"
+            onerror="this.parentElement.innerHTML='<div style=\'display:flex;align-items:center;justify-content:center;height:100%;font-size:5rem;\'>🏍️</div>'">
+        </div>
+      </div>
+      <div class="fade-in-right">
+        <span class="section-label">La historia</span>
+        <h2 class="section-title" style="margin-bottom:1.5rem;">GRECIA<br><span>VALENTINA</span></h2>
+        <p style="color:var(--color-white-muted);line-height:1.8;margin-bottom:1.5rem;">
+          Influencer, motociclista y apasionada del estilo de vida sobre dos ruedas. 
+          Comparto mi recorrido diario entre rutas, eventos y todo lo que el mundo moto tiene para ofrecer.
+        </p>
+        <p style="color:var(--color-white-muted);line-height:1.8;margin-bottom:2rem;">
+          Esta tienda nació de la necesidad real: encontrar accesorios de calidad que combinen 
+          seguridad y estilo. Cada producto aquí lo conozco, lo uso y lo recomiendo con criterio.
+        </p>
+        <div style="display:flex;gap:1rem;flex-wrap:wrap;">
+          <a href="nosotros.html" class="btn btn-outline">Conoce mi historia</a>
+          <a href="#" id="igLinkHero" target="_blank" rel="noopener" class="btn btn-ghost">📸 Instagram</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ PRODUCTOS DESTACADOS ══════════ -->
+<section class="section" id="productos-destacados" style="background:var(--color-bg-2);">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">Lo más vendido</span>
+      <h2 class="section-title">PRODUCTOS <span>DESTACADOS</span></h2>
+    </div>
+    <div class="products-grid" id="featuredProducts"></div>
+    <div style="text-align:center;margin-top:3rem;" class="fade-in">
+      <a href="tienda.html" class="btn btn-outline">Ver todos los productos →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ GOOGLE ADS ══════════ -->
+<div class="container">
+  <div class="ads-banner" id="adsBanner1">
+    <ins class="adsbygoogle" style="display:block"
+      data-ad-client="" data-ad-slot="" data-ad-format="auto" data-full-width-responsive="true"></ins>
+  </div>
+</div>
+
+<!-- ══════════ GALERÍA PREVIEW ══════════ -->
+<section class="section" id="galeria-preview">
+  <div class="container">
+    <div class="section-header fade-in">
+      <span class="section-label">Lifestyle</span>
+      <h2 class="section-title">MI <span>MUNDO MOTO</span></h2>
+    </div>
+    <div class="gallery-grid" id="galleryPreview">
+      <!-- Se rellena con JS -->
+    </div>
+    <div style="text-align:center;margin-top:2.5rem;" class="fade-in">
+      <a href="galeria.html" class="btn btn-outline">Ver galería completa →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ CTA WHATSAPP ══════════ -->
+<section class="section" style="background:var(--color-bg-2);">
+  <div class="container">
+    <div style="text-align:center;max-width:600px;margin:0 auto;" class="fade-in">
+      <span class="section-label">¿Tienes dudas?</span>
+      <h2 class="section-title" style="margin-bottom:1.5rem;">HABLEMOS POR<br><span>WHATSAPP</span></h2>
+      <p style="color:var(--color-white-muted);margin-bottom:2.5rem;line-height:1.7;">
+        ¿No encontraste lo que buscas? ¿Quieres asesoría para elegir tu casco ideal? 
+        Escríbeme directamente y con gusto te ayudo.
+      </p>
+      <a href="#" id="waCtaBtn" class="btn btn-whatsapp" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+          <path d="M12 0C5.373 0 0 5.373 0 12c0 2.119.554 4.107 1.523 5.834L0 24l6.335-1.508A11.94 11.94 0 0 0 12 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.6a9.567 9.567 0 0 1-4.95-1.376l-.355-.21-3.76.895.952-3.666-.231-.376A9.552 9.552 0 0 1 2.4 12C2.4 6.696 6.696 2.4 12 2.4S21.6 6.696 21.6 12 17.304 21.6 12 21.6z"/>
+        </svg>
+        Contactar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand fade-in">
+        <div class="footer-logo">
+          <img src="assets/img/logo.jpg" alt="GV" onerror="this.style.display='none'">
+          <span>GRECIA <span style="color:var(--color-gold)">VALENTINA</span></span>
+        </div>
+        <p>Accesorios de calidad para quienes viven la moto como filosofía de vida.</p>
+        <div class="footer-social" style="margin-top:1.5rem;">
+          <a href="#" id="igFooter" aria-label="Instagram" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" id="ttFooter" aria-label="TikTok" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+          </a>
+          <a href="#" id="waFooter" aria-label="WhatsApp" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="footer-col-title">Tienda</div>
+        <div class="footer-links">
+          <a href="tienda.html">Todos los productos</a>
+          <a href="tienda.html?cat=cascos">Cascos</a>
+          <a href="tienda.html?cat=guantes">Guantes</a>
+          <a href="tienda.html?cat=forros">Forros</a>
+          <a href="tienda.html?cat=chaquetas">Chaquetas</a>
+          <a href="carrito.html">Mi carrito</a>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="footer-col-title">Páginas</div>
+        <div class="footer-links">
+          <a href="nosotros.html">Sobre mí</a>
+          <a href="galeria.html">Galería</a>
+          <a href="contacto.html">Contacto</a>
+          <a href="creditos.html">Créditos</a>
+          <a href="estudio.html">El estudio</a>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="footer-col-title">Legal</div>
+        <div class="footer-links">
+          <a href="privacidad.html">Política de privacidad</a>
+          <a href="terminos.html">Términos y condiciones</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© <span id="footerYear"></span> Grecia Valentina. Todos los derechos reservados.</p>
+      <p class="footer-dev">Desarrollado por <a href="estudio.html">CerjeskyStudios</a> · Code · Create · Innovate</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Back to top -->
+<button id="backToTop" aria-label="Volver arriba" title="Volver arriba"
+  style="position:fixed;bottom:2rem;right:2rem;z-index:500;width:44px;height:44px;border-radius:50%;background:var(--gradient-gold);color:#000;display:flex;align-items:center;justify-content:center;box-shadow:var(--shadow-btn);border:none;cursor:pointer;font-size:1.2rem;">
+  ↑
+</button>
+
+<!-- SCRIPTS -->
+<script src="js/config.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/products.js"></script>
+<script src="js/popup.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // Configurar links desde CONFIG
+  const waPhone = CONFIG.WHATSAPP_NUMBER.replace(/[^0-9]/g, '');
+  const waMsg = encodeURIComponent('¡Hola Grecia! Me contacto desde tu tienda 😊');
+  document.getElementById('waCtaBtn').href = `https://wa.me/${waPhone}?text=${waMsg}`;
+  document.getElementById('waFooter').href  = `https://wa.me/${waPhone}`;
+  document.getElementById('igFooter').href  = CONFIG.REDES.instagram;
+  document.getElementById('ttFooter').href  = CONFIG.REDES.tiktok;
+  document.getElementById('igLinkHero').href = CONFIG.REDES.instagram;
+
+  // Productos destacados (primeros 6)
+  renderProducts('#featuredProducts', 'todos', 6);
+
+  // Galería preview (4 imágenes placeholder)
+  const gallery = document.getElementById('galleryPreview');
+  const galleryImgs = [
+    { src: 'assets/img/gallery/g1.jpg', caption: 'En ruta 🏍️' },
+    { src: 'assets/img/gallery/g2.jpg', caption: 'Evento moto' },
+    { src: 'assets/img/gallery/g3.jpg', caption: 'Look del día' },
+    { src: 'assets/img/gallery/g4.jpg', caption: 'Aventuras' },
+  ];
+  gallery.innerHTML = galleryImgs.map(g => `
+    <div class="gallery-item fade-in" data-lightbox="${g.src}">
+      <img src="${g.src}" alt="${g.caption}" 
+        onerror="this.parentElement.style.background='var(--color-surface)';this.style.display='none'">
+      <div class="gallery-overlay">
+        <span style="color:#fff;font-weight:600;">${g.caption}</span>
+      </div>
+    </div>
+  `).join('');
+});
+</script>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="lightbox-close" id="lightboxClose" aria-label="Cerrar">✕</button>
+  <img id="lightboxImg" src="" alt="Imagen ampliada">
+</div>
+
+</body>
+</html>
